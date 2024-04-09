@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    @include('includes.head')
+    <title>Genshin Impact</title>
+    <style>
+        .full-container {
+            width: 100%;
+            height: 80vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .medium-container {
+            overflow: hidden;
+            position: relative;
+            margin: 5%;
+            /* Marge extérieure */
+        }
+
+        .header-image {
+            filter: brightness(60%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            background-image: url("/images/background/genshin/ArbreSumeru.png");
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .parralax-inazuma {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            background-image: url("/images/background/genshin/ForetInazuma.png");
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .parralax-enka {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            background-image: url("/images/background/genshin/enko.png");
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .header-content {
+            filter: none;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #ffffff;
+            width: 80%;
+        }
+
+
+        @font-face {
+            font-family: 'GenshinFont';
+            src: url('../fonts/GenshinFont3.ttf') format('truetype');
+        }
+
+        .genshin-font {
+            font-family: 'GenshinFont', sans-serif;
+            text-align: left;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f5f5;
+            min-height: 100px;
+        }
+
+        .navigation img {
+            width: auto;
+            height: 100%;
+        }
+
+        .img-colone {
+            width: 80%;
+            height: auto;
+            object-fit: cover;
+            box-shadow: 0 0 10px 5px #5c5c5c;
+            padding: 2%;
+            background: #f8f5f5;
+        }
+
+        button {
+            background: #2f3640;
+            border-radius: 40px;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 2px;
+            transition: 0.2s;
+            padding: 10px 20px;
+        }
+
+        button:hover {
+            background: #fff;
+            color: #2f3640;
+            box-shadow: 0px 0px 10px #2f3640;
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .hidden-image {
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .navigation img {
+         display: none;
+            }
+        }
+
+    </style>
+    <script>
+// Logique de l'animation de l'image
+var animationPlayed = false;
+
+window.addEventListener('scroll', function() {
+    var image = document.getElementById('img-photographe');
+    var imagePosition = image.getBoundingClientRect().top;
+    var windowHeight = window.innerHeight;
+
+    // Vérifie si l'image est visible dans la fenêtre du navigateur et si l'animation n'a pas encore été jouée
+    if (imagePosition < windowHeight && !animationPlayed) {
+        // Ajoute une classe pour activer l'animation
+        image.classList.add('hidden-image');
+        // Marque l'animation comme déclenchée
+        animationPlayed = true;
+    }
+});
+
+    </script>
+</head>
+
+<body>
+    <header>
+        @include('includes.header')
+    </header>
+
+    <div class="full-container">
+        <div class="header-image"></div>
+        <div class="header-content">
+            <!-- Content -->
+            <h1 class="genshin-font">Genshin Impact</h1>
+            <br>
+            <h3 class="genshin-font">Les infos des événements de notre serveur.</h3>
+        </div>
+
+    </div>
+    <div class="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/dendroFlatC.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/dendroFlatC.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/dendroFlatC.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/dendroFlatC.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="medium-container">
+        <h2 class="genshin-font">*</h2>
+        <!-- Divisé en deux colonnes -->
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="genshin-font">Tout type!</h4>
+                <p class="genshin-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Sit amet est placerat in egestas erat
+                    imperdiet sed euismod. Quam pellentesque nec nam aliquam sem et tortor consequat id. Sed
+                    faucibus turpis in eu mi bibendum neque egestas. Ultrices vitae auctor eu augue ut lectus arcu
+                    bibendum. Eu volutpat odio facilisis mauris sit amet massa vitae.</p>
+                <img src="{{ asset('images/transitions/minecraft/firstslide.svg') }}" alt="First slide">
+                <p class="genshin-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Sit amet est placerat in egestas erat
+                    imperdiet sed euismod. Quam pellentesque nec nam aliquam sem et tortor consequat id. Sed
+                    faucibus turpis in eu mi bibendum neque egestas. Ultrices vitae auctor eu augue ut lectus arcu
+                    bibendum. Eu volutpat odio facilisis mauris sit amet massa vitae.</p>
+            </div>
+            <div class="col-md-6">
+                <h4 class="genshin-font">... Ou quelqu'un qui préfère le moddé !</h4>
+                <p class="genshin-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Sit amet est placerat in egestas erat
+                    imperdiet sed euismod. Quam pellentesque nec nam aliquam sem et tortor consequat id. Sed
+                    faucibus turpis in eu mi bibendum neque egestas. Ultrices vitae auctor eu augue ut lectus arcu
+                    bibendum. Eu volutpat odio facilisis mauris sit amet massa vitae.</p>
+                <img src="{{ asset('images/transitions/minecraft/secondslide.svg') }}" alt="Second slide">
+                <p class="genshin-font">
+            </div>
+        </div>
+    </div>
+    <div class="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/electroFlatC.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/electroFlatC.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/electroFlatC.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/electroFlatC.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="full-container">
+        <div class="parralax-inazuma"></div>
+    </div>
+    <div class="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/electroFlatC.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/electroFlatC.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/electroFlatC.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/electroFlatC.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="medium-container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ asset('/images/background/genshin/CascadeFontaine.png') }}" alt="img de cascade"
+                    class="img-colone" id="img-photographe">
+            </div>
+            <div class="col-md-6">
+                <h4 class="genshin-font">Des salons pour les photographes !</h4>
+                <p class="genshin-font">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Sit amet est placerat in egestas erat imperdiet sed euismod. Quam pellentesque
+                    nec nam aliquam sem et tortor consequat id. Sed faucibus turpis in eu mi bibendum neque egestas.
+                    Ultrices vitae auctor eu augue ut lectus arcu bibendum. Eu volutpat odio facilisis mauris sit amet
+                    massa vitae.
+                </p>
+                <br>
+                <button>Voir la page</button>
+                <p class="genshin-font">
+            </div>
+        </div>
+    </div>
+    <div class="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/anemoG.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/hydroG.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/electroG.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/dendroG.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="full-container">
+        <div class="parralax-enka"></div>
+    </div>
+    <div class="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/geoG.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/pyroG.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/cryoG.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <a href="#">
+                        <img src="{{ asset('/images/icon/genshin/hydroG.png') }}" alt="Anemo Element"
+                            class="img-fluid">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="medium-container">
+        <!-- Divisé en deux colonnes -->
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="genshin-font">Les calculateurs</h1>
+                <p class="genshin-font">Notre serveur dispose de calculateurs spécifiques pour optimiser l'utilisation
+                    de la résine et anticiper les besoins pour des futurs personnages.</p>
+            </div>
+            <div class="col-sm d-flex justify-content-center align-items-center">
+                <button>Voir la page</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        @include('includes.footer')
+    </footer>
+</body>
+
+</html>

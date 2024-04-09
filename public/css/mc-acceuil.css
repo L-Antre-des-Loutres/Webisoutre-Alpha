@@ -1,0 +1,118 @@
+@font-face {
+    font-family: 'Minecraftia';
+    src: url('../fonts/Minecraftia.ttf') format('truetype');
+}
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Minecraftia', sans-serif;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    background-image: url('../images/buttons/minecraft/mc-button-text.png');
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 18px;
+    color: #fff;
+    width: 206px;
+    height: 51px;
+    border: none;
+    font-family: 'Minecraftia', sans-serif;
+}
+
+#profil-button {
+    background-image: url('../images/buttons/minecraft/mc-button-profil.png');
+    width: 51px;
+    height: 51px;
+    border: none;
+}
+
+.button:hover {
+    background-image: url('../images/buttons/minecraft/mc-button-text-selected.png');
+    color: #1aa140;
+}
+
+#profil-button:hover {
+    background-image: url('../images/buttons/minecraft/mc-button-profil-selected.png');
+}
+
+.container-title {
+    display: flex;
+    flex-direction: column; /* pour aligner les éléments verticalement */
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    overflow: hidden;
+}
+
+.container-title h1 {
+    font-size: 3em;
+}
+
+#image-nos-serveurs {
+    background-image: url('../images/transitions/minecraft/dirt-full_final.png');
+}
+
+#image-nos-fonctions {
+    background-image: url('../images/transitions/minecraft/stone-full_final.png');
+}
+
+.container-repeating-image {
+    filter: brightness(50%);
+    background-size: contain;
+    background-repeat: repeat-x;
+    overflow: hidden;
+    height: 200px;  
+
+    display: flex;
+    flex-direction: column; /* pour aligner les éléments verticalement */
+    justify-content: center;
+    align-items: center;
+
+    margin: -40px 0px -40px 0;
+}
+
+.container-repeating-image-title {
+    color: rgb(255, 255, 255);
+}
+
+#screenshots-nos-serveurs {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../images/screenshots/vanilla-spawn.png');
+}
+
+#screenshots-nos-fonctions {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../images/screenshots/vanilla-maison-az.png');
+}
+
+.container-content {
+    background-size:cover;
+    background-repeat: repeat-x;
+    overflow: hidden;
+    height: 1000px;  
+
+    display: flex;
+    flex-direction: column; /* pour aligner les éléments verticalement */
+    justify-content: center;
+    align-items: center;
+}
+
+.column {
+    flex: 1; /* Les colonnes auront la même largeur */
+    padding: 5vh; /* Ajoutez un peu d'espace autour du contenu de chaque colonne */
+}
+.column:not(:last-child) {
+    border-right: 2px solid #000;
+}
+
+.container-content p {
+    margin: 0px 12vh 0px 12vh;
+}

@@ -1,0 +1,96 @@
+@extends('layouts.page')
+
+@section('title', 'Accueil')
+
+@section('content')
+{{--
+<link rel="stylesheet" href="{{ asset('css/mc-acceuil.css') }}">
+
+<head>
+    
+    <title>Antre des Loutres</title>
+    <link rel="icon" href="{{ asset('../images/buttons/minecraft/mc-button-profil.png0') }}" type="image/x-icon"/>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div>
+        <div class="container-title">
+            <h1>Antre des Loutres</h1>
+            <h2>Bienvenue sur la partie Minecraft de notre communauté !</h2>
+            <div class="buttons">
+                <button class="button">Serveurs</button>
+                <button class="button">Fonctionnalités</button>
+                <button class="button">Communauté</button>
+                <button class="button">Détails</button>
+                <a href='/login'><button id='profil-button' class="button" href='/login'></button></a>
+            </div>
+        </div>
+    </div>
+
+    <div id='image-nos-serveurs' class='container-repeating-image'>
+        <div class='container-repeating-image-title'>
+            <h2>Nos serveurs</h2>
+        </div>
+    </div>
+
+    <div id='screenshots-nos-serveurs' class='container-content'>
+        <div>
+            <div>
+                <div class="column">
+                    <p>Serveur Vanilla</p><br><br>
+                    <p>En pur Vanilla, se serveur abrite de nombreuses créations et trace de vie, son principale but étant de construire et se faire plaisir dans un monde SMP.</p><br>
+                    
+
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="d-block w-100" src="../images/buttons/minecraft/mc-button-profil.png" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="../images/buttons/minecraft/mc-button-profil.png" alt="Second slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="../images/buttons/minecraft/mc-button-profil.png" alt="Third slide">
+                          </div>
+                        </div>
+                      </div>
+
+
+                    <p>Notre serveur Vanilla est notre petit monde préféré, et c'est pourquoi elle à un traitement spécial par rapport aux autre survies.</p><br>
+                </div>
+                <div class="column">Autres Serveurs</div>
+            </div>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, autem? Culpa ea numquam unde doloremque omnis nihil ex dolore iste corrupti ipsum vero, repudiandae neque similique architecto? Iste incidunt repellat aliquid fuga, laborum eius quo facilis maiores vero magnam dignissimos perferendis nesciunt ex, sint voluptatem. Ut labore iusto nihil eum laboriosam nobis natus culpa quae consequuntur, vero distinctio officia ratione mollitia fugit. Molestias vitae aspernatur facilis possimus minus similique fugiat eaque ut reiciendis! Illum voluptatibus et exercitationem odio laboriosam, voluptatum placeat labore ad animi deleniti soluta, vitae iste illo id quisquam voluptates impedit eveniet doloremque nesciunt vero, officiis expedita praesentium! Aspernatur consectetur quibusdam, a quo molestiae ea placeat neque quidem cumque! Amet molestias, neque adipisci nostrum nam natus nisi et.
+    </div>
+
+    <div id='image-nos-fonctions' class='container-repeating-image'>
+        <div class='container-repeating-image-title'>
+            <h2>Les fonctionnalités</h2>
+        </div>
+    </div>
+
+    <div id='screenshots-nos-fonctions' class='container-content'>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, autem? Culpa ea numquam unde doloremque omnis nihil ex dolore iste corrupti ipsum vero, repudiandae neque similique architecto? Iste incidunt repellat aliquid fuga, laborum eius quo facilis maiores vero magnam dignissimos perferendis nesciunt ex, sint voluptatem. Ut labore iusto nihil eum laboriosam nobis natus culpa quae consequuntur, vero distinctio officia ratione mollitia fugit. Molestias vitae aspernatur facilis possimus minus similique fugiat eaque ut reiciendis! Illum voluptatibus et exercitationem odio laboriosam, voluptatum placeat labore ad animi deleniti soluta, vitae iste illo id quisquam voluptates impedit eveniet doloremque nesciunt vero, officiis expedita praesentium! Aspernatur consectetur quibusdam, a quo molestiae ea placeat neque quidem cumque! Amet molestias, neque adipisci nostrum nam natus nisi et.
+    </div>
+
+    <div id='image-nos-fonctions' class='container-repeating-image'>
+        <div class='container-repeating-image-title'>
+            <h2>Petite pause</h2>
+        </div>
+    </div>
+
+    <div class='container-content'>
+        <p>Petite pause dans ta lecture. C'est important.</p>
+    </div>
+
+    <div id='image-nos-fonctions' class='container-repeating-image'>
+        <div class='container-repeating-image-title'>
+            <h2>Communauté</h2>
+        </div>
+    </div>
+</body>
+</html>
+--}}
+@endsection
