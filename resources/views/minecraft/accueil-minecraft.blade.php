@@ -25,8 +25,16 @@
             height: 80vh;
         }
 
-        .full-container .vanilla-bg,
-        .idk-bg {
+        .full-container .vanilla-bg {
+            background-attachment: fixed;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+
+            z-index: -40;
+        }
+
+        .full-container .idk-bg {
             background-attachment: fixed;
             background-size: cover;
             width: 100%;
@@ -336,6 +344,9 @@
                                         <a href='#sectionAventures'>Découvrir les serveurs</a>
                                     </div>
                                     <div class='custom-button-container'>
+                                        <a href='#'>Activité</a>
+                                    </div>
+                                    <div class='custom-button-container'>
                                         <a href='#'>Évènements</a>
                                     </div>
                                     <div class='custom-button-container'>
@@ -389,8 +400,8 @@
                 </i></span></h2>
         <!-- Fin titre -->
 
+        <br><br><br>
         <!-- Première ligne : Division en deux colonnes -->
-        <br>
         <div class="row" style="margin: 1em">
             <script>
                 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -406,7 +417,7 @@
                 <h3>-> Vous avez une survie Vanilla ?</h3>
                 <br>
                 <p style="font-size: 1em">
-                    Oui ! C'est même notre aventure principale ! Sombrement nommé <i style="color: green">"La
+                    Oui ! C'est même notre aventure principale ! Sobrement nommé <i style="color: green">"La
                         Vanilla"</i>, cette survie existe depuis déjà un an et acceuille de temps en temps de nouveaux
                     joueurs encore.
                     <br><br>
@@ -422,6 +433,7 @@
                         document.write(`
                             <div class="custom-button-container-large">
                                 <a href="{{ route('accueil-minecraft') }}">Voir des constructions</a>
+                                <a href="#">Vue d'Arisoutre</a>
                             </div>
                         `);
                     } else {
