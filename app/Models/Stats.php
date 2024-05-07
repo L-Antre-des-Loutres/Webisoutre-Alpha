@@ -88,5 +88,16 @@ class Stats extends Model
             ->groupBy('id_serv')
             ->get();
     }
+
+    public static function getJoueursParServeur($id_serv)
+    {
+        return self::select(
+            'username'
+        )
+            ->where('id_serv', $id_serv)
+            ->groupBy('username')
+            ->orderBy('username')
+            ->get();
+    }
 }
 ?>

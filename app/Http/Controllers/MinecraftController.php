@@ -62,8 +62,11 @@ class MinecraftController extends Controller
         // Utiliser la fonction getNbJoueursParIdServ pour obtenir le nombre de joueurs sur le serveur
         $nb_joueurs = Stats::getNbJoueursParIdServ($serveur->id_serv)->first();
 
+        // Utiliser la fonction getJoueurParIdServ pour obtenir les joueurs sur le serveur
+        $joueurs = Stats::getJoueursParServeur($serveur->id_serv);
+
         // Passer les informations du serveur à la vue
-        return view('minecraft.detail', ['serveur' => $serveur], ['nb_joueurs' => $nb_joueurs]);
+        return view('minecraft.detail', ['serveur' => $serveur, 'nb_joueurs' => $nb_joueurs, 'joueurs' => $joueurs]);
     }
 
     public function liste()

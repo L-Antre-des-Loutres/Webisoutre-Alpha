@@ -28,4 +28,10 @@
             </tbody>
         </table>
     </div>
+    <p class="lead">Liste des joueurs :</p>
+    <ul>
+        @foreach ($joueurs as $joueur)
+            <li>{{ $joueur->username }}</li>
+        @endforeach
+    </ul>
 @endsection
