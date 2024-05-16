@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.menu-btn {
+    background-image: url('../images/buttons/minecraft/mc-button-fleche-gauche-menu.png');
+    background-size: cover;
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 72px;
+    height: 72px;
+    z-index: 1000;
+}
+
+.menu-btn:hover {
+    background-image: url('../images/buttons/minecraft/mc-button-fleche-gauche-menu-selected.png');
+}
+
+.sidebar {
+    background: #343434;
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100%;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.sidebar ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar * {
+    color: #fff;
+    text-decoration: none;
+    padding-left: 20px;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+/* Media queries pour ajuster la taille de l'iframe sur mobile */
+@media (max-width: 768px) {
+    iframe {
+        width: 310px;
+        height: 250px;
+    }
+}
+
+.content {
+    padding: 20px;
+    transition: margin-right 0.3s ease;
+}
+
+.content.active {
+    margin-right: 350px;
+}
