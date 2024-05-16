@@ -53,7 +53,8 @@ Route::get('/download/{nom_fichier}', [DownloadController::class, 'downloadFiles
 // Route connexion Discord
 use App\Http\Controllers\ConnexionController;
 
-Route::get('/link-discord', [ConnexionController::class, 'connexionDiscord'])->name('connexion.discord');
+Route::get('/discord/link', [ConnexionController::class, 'linkDiscord'])->name('link.discord');
+Route::get('/discord/connexion', [ConnexionController::class, 'connexionDiscord'])->name('connexion.discord');
 
 // Route authentification
 Route::middleware([

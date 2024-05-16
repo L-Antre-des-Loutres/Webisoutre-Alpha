@@ -8,8 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Sanctum\HasApiTokens;	
+use Laravel\Sanctum\HasApiTokens;
 use App\Models\LinkMcViaDiscord;
+use InvalidArgumentException;
 use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
@@ -72,7 +73,7 @@ class User extends Authenticatable
      * @param string $discordId
      * @return void
      */
-     
+
     public function linkDiscord($id_discord, $user_tag, $userPdp, $email)
     {
         // Recherche l'utilisateur par son adresse e-mail
@@ -92,4 +93,25 @@ class User extends Authenticatable
 
         }
     }
+
+    public function connexionDiscord($id_discord)
+    {
+        // Valider que l'id_discord est de type string ou int
+        if (!is_string($id_discord) && !is_int($id_discord)) {
+            throw new InvalidArgumentException('L\'ID Discord doit être une chaîne de caractères ou un entier.');
+        }
+
+        // Recherche l'utilisateur par son id_discord
+        $user = User::where('id_discord', $id_discord)->first();
+
+        // Si l'utilisateur est trouvé, le connecter
+        if ($user) {
+            Auth::login($user);
+            return response()->json(['message' => 'Connexion réussie.'], 200);
+        } else {
+            // Gérer le cas où l'utilisateur n'est pas trouvé
+            return response()->json(['error' => 'Utilisateur non trouvé.'], 404);
+        }
+    }
+
 }

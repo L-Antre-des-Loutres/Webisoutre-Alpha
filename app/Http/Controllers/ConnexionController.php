@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ConnexionController extends Controller
 {
-    public function connexionDiscord(Request $request)
+    public function linkDiscord(Request $request)
     {
         if (!Auth::check()) {
             return redirect(route('login'));
@@ -21,17 +21,17 @@ class ConnexionController extends Controller
         }
 
         if (!$request->has('code')) {
-            return redirect('https://discord.com/api/oauth2/authorize?client_id=1183777618491879424&redirect_uri=https%3A%2F%2Fantredesloutres.online%2Flink-discord&response_type=code&scope=identify');
+            return redirect('https://discord.com/oauth2/authorize?client_id=1183777618491879424&response_type=code&redirect_uri=https%3A%2F%2Fantredesloutres.online%2Fdiscord%2Flink&scope=identify');
         }
-        
-        
+
+
         // Récupérez le code d'autorisation depuis la requête URL
         $code = $request->input('code');
 
         // Remplacez ces valeurs par celles de votre application Discord
         $clientId = '1183777618491879424';
         $clientSecret = 'xHTWhJjTBwpS5rze0pzFbbQpRaNZai0-';
-        $redirectUri = 'https://antredesloutres.online/link-discord';
+        $redirectUri = 'https://antredesloutres.online/discord/link';
 
         // Étape 1: Obtenir le jeton d'accès en échangeant le code d'autorisation
         $tokenUrl = 'https://discord.com/api/oauth2/token';
@@ -67,7 +67,7 @@ class ConnexionController extends Controller
         $userPdp = $userData['avatar'];
 
         // Transforme l'avatar en lien
-        $userPdp = "https://cdn.discordapp.com/avatars/".$userId."/".$userPdp.".png";
+        $userPdp = "https://cdn.discordapp.com/avatars/" . $userId . "/" . $userPdp . ".png";
 
         // Récupérer l'email de l'utilisateur connecté
         $email = Auth::user()->email;
@@ -77,7 +77,57 @@ class ConnexionController extends Controller
 
         // Lier le compte Discord de l'utilisateur à son compte sur votre application
         $user->linkDiscord($userId, $userTag, $userPdp, $email);
-        
+
+        return redirect(route('dashboard'));
+    }
+
+    public function connexionDiscord(Request $request)
+    {
+        if (!$request->has('code')) {
+            return redirect('https://discord.com/oauth2/authorize?client_id=1183777618491879424&response_type=code&redirect_uri=https%3A%2F%2Fantredesloutres.online%2Fdiscord%2Fconnexion&scope=identify');
+        }
+
+         // Récupérez le code d'autorisation depuis la requête URL
+         $code = $request->input('code');
+
+         // Remplacez ces valeurs par celles de votre application Discord
+         $clientId = '1183777618491879424';
+         $clientSecret = 'xHTWhJjTBwpS5rze0pzFbbQpRaNZai0-';
+         $redirectUri = 'https://antredesloutres.online/discord/connexion';
+
+         // Étape 1: Obtenir le jeton d'accès en échangeant le code d'autorisation
+         $tokenUrl = 'https://discord.com/api/oauth2/token';
+         $data = [
+             'client_id' => $clientId,
+             'client_secret' => $clientSecret,
+             'grant_type' => 'authorization_code',
+             'code' => $code,
+             'redirect_uri' => $redirectUri,
+             'scope' => 'identify'
+         ];
+
+         $client = new Client();
+         $response = $client->post($tokenUrl, ['form_params' => $data]);
+         $accessToken = json_decode($response->getBody(), true)['access_token'];
+
+         // Étape 2: Obtenir des informations sur l'utilisateur avec le jeton d'accès
+         $userUrl = 'https://discord.com/api/users/@me';
+         $headers = [
+             'Authorization' => 'Bearer ' . $accessToken
+         ];
+
+         $userResponse = $client->get($userUrl, ['headers' => $headers]);
+         $userData = json_decode($userResponse->getBody(), true);
+
+         // L'ID de connexion de l'utilisateur
+         $userId = $userData['id'];
+
+         // Instancier un objet User
+         $user = new User();
+
+         // Connexion de l'utilisateur
+         $user->connexionDiscord($userId);
+
         return redirect(route('dashboard'));
     }
 }
