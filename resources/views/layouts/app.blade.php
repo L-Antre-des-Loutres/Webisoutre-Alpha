@@ -23,8 +23,6 @@
 <body class="font-sans antialiased">
     <x-banner />
 
-    <div class="min-h-screen bg-gray-100">
-
         <!-- Page Heading -->
         @if (isset($header))
             @include('includes.header')
@@ -42,7 +40,6 @@
                     @include('includes.footer')
                 </div>
             </footer>
-    </div>
     @endif
     @stack('modals')
 
