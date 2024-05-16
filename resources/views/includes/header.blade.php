@@ -1,4 +1,4 @@
-<header>    
+<header>
     <style>
         body {
             margin: 0;
@@ -111,19 +111,14 @@
                         Classements
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item"
-                                href="https://antredesloutres.online/minecraft/classement?classement=joueur">Joueur sur
+                        <li><a class="dropdown-item" href="{{ route('classement-minecraft-joueur') }}">Joueur sur
                                 tous serveurs</a></li>
-                        <li><a class="dropdown-item"
-                                href="https://antredesloutres.online/minecraft/classement?classement=serveur">Joueur par
+                        <li><a class="dropdown-item" href="{{ route('classement-minecraft-serveur') }}">Joueur par
                                 serveur</a></li>
                     </ul>
                 </li>
             </ul>
             <br><br><br>
-            {{-- If joueurs < 2
-                <p id="placeholder">Vanilla                                       X joueur connecté</p>
-                If joueurs > 1 --}}
             <p id="placeholder">Vanilla X joueurs connectés</p>
             <form class="d-flex mt-3" role="search">
                 <input class="form-control me-1" type="search" placeholder="Chercher un profil de joueur"
@@ -157,4 +152,3 @@
         });
     </script>
 </header>
-
