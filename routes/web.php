@@ -28,10 +28,16 @@ use App\Http\Controllers\MinecraftController;
 
 Route::get('/minecraft', [MinecraftController::class, 'index'])->name('accueil-minecraft');
 Route::get('/minecraft/classement', [MinecraftController::class, 'classement'])->name('classement-minecraft');
-Route::get('/minecraft/classement/?classement=joueur', [MinecraftController::class, 'serveur'])->name('classement-minecraft-joueur');
-Route::get('/minecraft/classement/?classement=serveur', [MinecraftController::class, 'serveur'])->name('classement-minecraft-serveur');
 Route::get('/minecraft/liste', [MinecraftController::class, 'liste'])->name('liste-serveurs');
 Route::get('/minecraft/serveur/detail', [MinecraftController::class, 'detail'])->name('detail-minecraft');
+
+// Route Classement Minecraft
+use App\Http\Controllers\ClassementController;
+Route::get('/minecraft/classement', [ClassementController::class, 'classement'])->name('classement-minecraft');
+Route::get('/minecraft/classement/?classement=joueur', [ClassementController::class, 'classement'])->name('classement-minecraft-joueur');
+Route::get('/minecraft/classement/?classement=serveur', [ClassementController::class, 'classement'])->name('classement-minecraft-serveur');
+Route::get('/minecraft/stats/joueur', [ClassementController::class, 'profilStats'])->name('statsJoueur');
+Route::delete('/minecraft/admin/supprimerStats/{id_stats}/{username}', [ClassementController::class, 'deleteStats'])->name('admin-deleteStats');
 
 // Route Minecraft Admin
 // Les routes nécessitant une authentification admin

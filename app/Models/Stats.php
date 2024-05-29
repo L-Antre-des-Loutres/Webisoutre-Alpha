@@ -46,6 +46,39 @@ class Stats extends Model
             ->get();
     }
 
+    public static function getAllStatsParUsername($username)
+    {
+        return self::select(
+            'stats_serv.id',
+            'stats_serv.username',
+            'stats_serv.temp_jeux',
+            'stats_serv.nb_mort',
+            'stats_serv.distTotale',
+            'infos_serv.nom_serv'
+        )
+        ->join('infos_serv', 'stats_serv.id_serv', '=', 'infos_serv.id_serv')
+        ->where('stats_serv.username', $username)
+        ->orderBy('infos_serv.nom_serv')
+        ->get();
+    }
+
+
+    public static function getAllStatsJoueurParIdJoueur($id_joueur)
+    {
+        return self::select(
+            'stats_serv.username',
+            'stats_serv.temp_jeux',
+            'stats_serv.nb_mort',
+            'stats_serv.distTotale',
+            'infos_serv.nom_serv'
+        )
+        ->join('infos_serv', 'stats_serv.serv_id', '=', 'infos_serv.id')
+        ->where('stats_serv.username', $id_joueur)
+        ->orderBy('infos_serv.nom_serv')
+        ->get();
+    }
+
+
     public static function getStatsParJoueurParServeurParUUID($serveurNom, $uuid)
     {
         return self::join('infos_serv', 'stats_serv.id_serv', '=', 'infos_serv.id_serv')

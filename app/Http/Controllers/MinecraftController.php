@@ -20,37 +20,6 @@ class MinecraftController extends Controller
         return view('minecraft.accueil-minecraft');
     }
 
-    public function classement()
-    {
-        // Récupération des stats total trié par joueur
-        $statsParJoueur = Stats::getTotalHoursAndDeathsPerPlayer();
-
-        // Récupération des serveurs actifs
-        $serveurs = InfosServ::getAllInfosServ();
-
-        // Vérification de la présence du paramètre 'serveurChoix' dans la requête GET
-        if (request()->has('serveurChoix')) {
-            // Si le paramètre est présent, récupérez sa valeur
-            $serveurChoix = request()->serveurChoix;
-
-            // Récupération des stats total trié par serveur
-            $statsParJoueurParServeur = Stats::getStatsParJoueurParServeur($serveurChoix);
-        } else {
-            // Si le paramètre 'serveurChoix' n'est pas présent dans la requête GET,
-            // vous pouvez effectuer une action en conséquence.
-            // Par exemple, vous pouvez définir $statsParJoueurParServeur comme vide ou rediriger l'utilisateur.
-            $statsParJoueurParServeur = [];
-        }
-
-        // Passer les informations du serveur et les statistiques à la vue
-        return view('minecraft.classement', [
-            'statsParJoueur' => $statsParJoueur,
-            'serveurs' => $serveurs,
-            'statsParJoueurParServeur' => $statsParJoueurParServeur
-        ]);
-    }
-
-
     public function detail(Request $request)
     {
         // Récupérer l'ID du serveur à partir des paramètres de la requête
@@ -109,10 +78,10 @@ class MinecraftController extends Controller
     {
         // Récupérer l'ID du serveur à partir des paramètres de la requête
         $serveurID = $request->input('serveurID');
-    
+
         // Utilisez correctement l'ID du serveur pour récupérer les informations
         $serveur = InfosServ::getInfosWithID($serveurID);
-    
+
         // Passer l'ID du serveur à la vue du formulaire de modification
         return view('minecraft.admin.editServeur', ['serveur' => $serveur, 'serveurID' => $serveurID]);
     }
@@ -203,11 +172,11 @@ class MinecraftController extends Controller
             $serveur = InfosServ::findOrFail($id_serv);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             // Handle the case when the server is not found
-            return redirect()->route('liste-serveurs')->with('error', 'Serveur non trouvé.');
+            return redirect()->route('statsJoueur')->with('error', 'Serveur non trouvé.');
         }
         // Suppression du serveur dans la base de données
         $serveur->delete();
 
-        return redirect()->route('liste-serveurs');
+        return redirect()->route('statsJoueur');
     }
 }
