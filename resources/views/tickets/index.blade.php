@@ -11,6 +11,7 @@
         <tr>
             <th>Titre</th>
             <th>Statut</th>
+            <th>Ouvert par</th>
             <th>Actions</th>
         </tr>
         @foreach ($tickets as $ticket)
@@ -19,6 +20,7 @@
                     <a href="{{ route('tickets.show', $ticket) }}">{{ $ticket->titre }}</a>
                 </td>
                 <td>{{ $ticket->status }}</td>
+                <td>{{ $ticket->user->name }}</td>
                 <td>
                     <form action="{{ route('tickets.show', $ticket) }}" method="GET">
                         <button type="submit" class="button">Voir</button>

@@ -21,6 +21,10 @@
                 <option value="attente" {{ $ticket->status == 'attente' ? 'selected' : '' }}>En attente</option>
             </select>
         </div>
+        <div>
+            <p>Ouvert par : {{ $ticket->user->name }}</p>
+            <p>Date de création : {{ $ticket->created_at }}</p>
+        </div>
         <button type="submit" class="button">Modifier</button>
     </form>
     <form action="{{ route('tickets.show', $ticket->id) }}">

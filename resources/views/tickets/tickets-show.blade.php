@@ -4,6 +4,8 @@
     <h1>{{ $ticket->titre }}</h1>
     <p>{{ $ticket->description }}</p>
     <p><span style="font-weight: bold;">Statut : <span><span style="font-weight: normal;">{{ $ticket->status }}</span></p>
+    <p><span style="font-weight: bold;">Ouvert par : <span><span style="font-weight: normal;">{{ $ticket->user->name }}</span></p>
+    <p><span style="font-weight: bold;">Date de création : <span><span style="font-weight: normal;">{{ $ticket->created_at }}</span></p>
     @if (Auth::user()->admin == 1)
         <form action="{{ route('tickets.edit', $ticket) }}" method="GET">
             <button type="submit" class="button">Modifier</button>

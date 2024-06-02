@@ -25,8 +25,10 @@
             <label for="status">Statut :</label>
             <select name="status" id="status">
                 <option value="ouvert" {{ old('status') == 'ouvert' ? 'selected' : '' }}>Ouvert</option>
-                <option value="clot" {{ old('status') == 'clot' ? 'selected' : '' }}>Clot</option>
-                <option value="attente" {{ old('status') == 'attente' ? 'selected' : '' }}>En attente</option>
+                @if (Auth::user()->admin == 1)
+                    <option value="clot" {{ old('status') == 'clot' ? 'selected' : '' }}>Clot</option>
+                    <option value="attente" {{ old('status') == 'attente' ? 'selected' : '' }}>En attente</option>
+                @endif
             </select>
         </div>
         <div>
