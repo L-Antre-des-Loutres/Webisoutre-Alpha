@@ -33,7 +33,7 @@ class ModifyBadgesAndBadgeDetailsTables extends Migration
             'title' => 'Liaison compte Discord',
             'description' => 'Badge obtenu après avoir lié votre compte Discord',
             'condition' => 'discord_linked',
-            'image_link' => '/public/images/badges/admin.png',
+            'image_link' => 'link_discord.png',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -43,7 +43,7 @@ class ModifyBadgesAndBadgeDetailsTables extends Migration
             'title' => 'Liaison compte Minecraft',
             'description' => 'Badge obtenu après avoir lié votre compte Minecraft',
             'condition' => 'minecraft_linked',
-            'image_link' => '/public/images/badges/champion_vanilla.png',
+            'image_link' => 'link_minecraft.png',
             'created_at' => now(),
             'updated_at' => now()
         ]);
