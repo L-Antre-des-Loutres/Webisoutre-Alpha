@@ -21,7 +21,18 @@ Route::get('/', function () {
 // Route Profil
 use App\Http\Controllers\ProfilController;
 
+// Route pour afficher le profil de l'utilisateur connecté
 Route::get('/profil', [ProfilController::class, 'profil'])->name('profil');
+
+// Route pour afficher le profil d'un utilisateur spécifique
+Route::get('/profil/{username}', [ProfilController::class, 'profilParUsername'])->name('profil-username');
+
+// Route pour les badges
+Route::get('/badges', [ProfilController::class, 'badges'])->name('badges');
+
+// Route pour obtenir un badge
+Route::post('/badges/{badgeId}', [ProfilController::class, 'getBadge'])->name('getBadge');
+
 
 
 // Route Genshin

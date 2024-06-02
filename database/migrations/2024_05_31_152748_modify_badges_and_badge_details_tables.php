@@ -53,8 +53,8 @@ class ModifyBadgesAndBadgeDetailsTables extends Migration
             $table->id();  // Clé primaire auto-incrémentée
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('badge_detail_id'); // Colonne pour la clé étrangère vers badge_details
-            $table->foreign('badge_detail_id')->references('id')->on('badge_details')->onDelete('cascade');
+            $table->unsignedBigInteger('badge_id'); // Colonne pour la clé étrangère vers badge_details
+            $table->foreign('badge_id')->references('id')->on('badge_details')->onDelete('cascade');
             // Ajoutez d'autres colonnes pour les données de votre badge
             $table->timestamps();
         });

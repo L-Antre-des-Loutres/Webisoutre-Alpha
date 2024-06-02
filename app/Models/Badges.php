@@ -1,7 +1,5 @@
 <?php
 
-// app/Models/GenshinId.php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -21,11 +19,20 @@ class Badges extends Model
         return self::select(
             'badges.id',
             'badges.user_id',
-            'badges.badge_detail_id',
+            'badges.badge_id',
             'badges.created_at',
             'badges.updated_at'
         )
         ->where('badges.user_id', $userId)
         ->get();
+    }
+
+    public static function insertBadge($userId, $badgeId){
+        return self::insert([
+            'user_id' => $userId,
+            'badge_id' => $badgeId,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
     }
 }

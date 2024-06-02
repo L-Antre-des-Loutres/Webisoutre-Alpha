@@ -21,6 +21,11 @@ return new class extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
+            $table->string('id_discord')->nullable();
+            $table->string('tag_discord')->nullable();
+            $table->string('pdp_discord')->nullable();
+            $table->string('uuid_minecraft')->nullable();
+            $table->boolean('admin')->default(false);
         });
     }
 
@@ -32,3 +37,4 @@ return new class extends Migration
         Schema::dropIfExists('users');
     }
 };
+
