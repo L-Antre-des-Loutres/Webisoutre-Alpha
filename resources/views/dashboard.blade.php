@@ -132,13 +132,13 @@
                                 <div class="card-body" style="max-height:80vh;">
                                     <h5 class="card-title" style="font-size: 1.25rem;">{{ Auth::user()->name }}</h5>
                                     <p class="card-text" style="font-size: 0.875rem;">Votre compte @if (Auth::user()->admin == 1)
-                                            {{ "Admin de l'Antre des Loutres" }}@else{{ 'Antre des loutres' }}
+                                            {{ "Admin" }}@else{{ 'Utilisateur' }}
                                         @endif
                                     </p>
                                     <br>
                                     <div class="btn-container">
                                         <a href="#"><button type="button"
-                                                class="btn btn-primary">-</button></a><br><br>
+                                                class="btn btn-primary">Votre Dashboard</button></a><br><br>
                                         <a href="#"><button type="button"
                                                 class="btn btn-primary">Paramètres</button></a><br><br>
                                         <a href="#"><button type="button"
@@ -147,9 +147,7 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <a class="card-text" href="perdu.com"><small class="footer-card-link">> En savoir
-                                            plus
-                                            sur mes données de compte Antre des Loutres</small></a>
+                                    <a class="card-text" href="perdu.com"><small class="footer-card-link">> En savoir plus sur mes données de compte Antre des Loutres</small></a>
                                 </div>
                             </div>
                         </div>
@@ -161,21 +159,14 @@
                             <div class="card mx-auto" style="max-width: 15rem;">
                                 <div class="card-body">
                                     <h5 class="card-title" style="font-size: 1.25rem;">Pseudo Minecraft</h5>
-                                    <p class="card-text" style="font-size: 0.875rem;">Aucun pseudo Minecraft lié.
-                                        <br><br>Lié votre pseudo Minecraft permet :<br><br>
-                                        •<br>
-                                        •<br>
-                                        •<br>
-                                    </p>
+                                    <p class="card-text" style="font-size: 0.875rem;">Aucun pseudo Minecraft lié.</p>
                                     <br>
                                     <div class="btn-container">
-                                        <a href="#"><button type="button" class="btn btn-success">Lié un pseudo
-                                                Minecraft</button></a>
+                                        <a href="#"><button type="button" class="btn btn-success">Lié un pseudo Minecraft</button></a>
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <a class="card-text" href="perdu.com"><small class="footer-card-link">> En savoir
-                                            plus sur mes données de joueurs Minecraft</small></a>
+                                    <a class="card-text" href="perdu.com"><small class="footer-card-link">> En savoir plus sur mes données de joueurs Minecraft</small></a>
                                 </div>
                             </div>
                         </div>
@@ -189,7 +180,6 @@
 
                             // Enregistrement au sein de la session
                             session(['pseudonyme_minecraft' => $pseudonyme]);
-
                             ?>
                         <div class="col-md-4 mb-3">
                             <div class="card mx-auto" style="max-width: 15rem;">
@@ -202,7 +192,7 @@
                                     <div class="btn-container">
                                         <a href="#"><button type="button" class="btn btn-primary">Profil
                                                 Joueur</button></a><br><br>
-                                        <a href=""><button type="button"
+                                        <a href="{{ route('classement-minecraft-joueur') }}"><button type="button"
                                                 class="btn btn-primary">Classement</button></a><br><br>
                                         <a href="#"><button type="button"
                                                 class="btn btn-danger">Délié</button></a>
@@ -222,22 +212,15 @@
                             <div class="card mx-auto" style="max-width: 15rem;">
                                 <div class="card-body">
                                     <h5 class="card-title" style="font-size: 1.25rem;">Compte Discord</h5>
-                                    <p class="card-text" style="font-size: 0.875rem;">Aucun compte Discord lié.
-                                        <br><br>Lié votre compte Discord permet :<br><br>
-                                        •<br>
-                                        •<br>
-                                        •<br>
-                                    </p>
+                                    <p class="card-text" style="font-size: 0.875rem;">Aucun compte Discord lié.</p>
                                     <br>
                                     <div class="btn-container">
-                                        <a href="link-discord"><button type="button" class="btn btn-success">Lié un
-                                                compte Discord</button></a>
+                                        <a href="link-discord"><button type="button" class="btn btn-success">Lié un compte Discord</button></a>
                                     </div>
                                 </div>
 
                                 <div class="card-footer">
-                                    <a class="card-text" href="perdu.com"><small class="footer-card-link">> En savoir
-                                            plus sur mes données Discord</small></a>
+                                    <a class="card-text" href="perdu.com"><small class="footer-card-link">> En savoir plus sur mes données Discord</small></a>
                                 </div>
                             </div>
                         </div>
@@ -249,17 +232,16 @@
                                 <img class="card-img-top" src="{{ Auth::user()->pdp_discord }}" alt="Photo de profil">
                                 <div class="card-body">
                                     <h5 class="card-title" style="font-size: 1.25rem;">
-                                        {{ /* Récupére l'id Discord stocké dans la session */ Auth::user()->tag_discord }}
+                                        {{ Auth::user()->tag_discord }}
                                     </h5>
                                     <p class="card-text" style="font-size: 0.875rem;">Votre compte Discord lié</p>
                                     <br>
                                     <div class="btn-container">
                                         <a href="https://discord.gg/k4ZBFVdntp"><button type="button"
                                                 class="btn btn-primary">Profil & Stats Discord</button></a><br><br>
-                                        <a href="#"><button type="button" class="btn btn-primary">Redirection
+                                        <a href="https://discord.com/invite/k4ZBFVdntp"><button type="button" class="btn btn-primary">Redirection
                                                 Discord</button></a><br><br>
-                                        <a href="#"><button type="button"
-                                                class="btn btn-danger">Délié</button></a>
+                                        <a href="#"><button type="button" class="btn btn-danger">Délié</button></a>
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -293,30 +275,16 @@
                                 <img class="card-img-top" src="{{ asset('images/icon/ticket.png') }}" alt="ticket">
                                 <div class="card-body">
                                     <div class="btn-container">
-                                        <a href="#"><button type="button" class="btn btn-primary">Ouvrir un
-                                                ticket</button></a><br>
+                                        <a href="{{ route('tickets.create') }}"><button type="button" class="btn btn-primary">Ouvrir un ticket</button></a><br>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="card mx-auto" style="max-width: 15rem;">
-                                <img class="card-img-top" src="{{ asset('images/icon/reset.png') }}" alt="reset">
-                                <div class="card-body">
-                                    <div class="btn-container">
-                                        <a href="#"><button type="button" class="btn btn-primary">-
-                                            </button></a><br>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
                 <br>
                 @if (Auth::user()->admin == 1)
                     <!-- Troisième ligne - Modération & Administation -->
-
                     <div style="justify-content: center; display: flex;">
                         <h1 id="randomFont" style="font-size:2em">Modération & Administation</h1>
                     </div>
@@ -324,36 +292,20 @@
                         <div class="row justify-content-center">
                             <div class="col-md-4 mb-3">
                                 <div class="card mx-auto" style="max-width: 15rem;">
-                                    <img class="card-img-top" src="{{ asset('images/icon/reset.png') }}"
-                                        alt="reset">
+                                    <img class="card-img-top" src="{{ asset('images/icon/moderation.png') }}" alt="reset">
                                     <div class="card-body">
-                                        <div class="btn-container">
-                                            <a href="#"><button type="button"
-                                                    class="btn btn-primary">-</button></a><br>
+                                        <div class="btn-container"> 
+                                            <a href="{{ route('admin-panel') }}"><button type="button" class="btn btn-primary">Gestion des serveurs</button></a><br>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <div class="card mx-auto" style="max-width: 15rem;">
-                                    <img class="card-img-top" src="{{ asset('images/icon/reset.png') }}"
-                                        alt="reset">
+                                    <img class="card-img-top" src="{{ asset('images/icon/moderation.png') }}" alt="reset">
                                     <div class="card-body">
                                         <div class="btn-container">
-                                            <a href="#"><button type="button"
-                                                    class="btn btn-primary">-</button></a><br>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <div class="card mx-auto" style="max-width: 15rem;">
-                                    <img class="card-img-top" src="{{ asset('images/icon/reset.png') }}"
-                                        alt="reset">
-                                    <div class="card-body">
-                                        <div class="btn-container">
-                                            <a href="#"><button type="button"
-                                                    class="btn btn-primary">-</button></a><br>
+                                            <a href="#"><button type="button" class="btn btn-primary">Gestion des joueurs</button></a><br>
                                         </div>
                                     </div>
                                 </div>
