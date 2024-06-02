@@ -175,12 +175,10 @@
                                 </div>
                                 <div class="card-footer">
                                     <a class="card-text" href="perdu.com"><small class="footer-card-link">> En savoir
-                                            plus
-                                            sur mes données de joueurs Minecraft</small></a>
+                                            plus sur mes données de joueurs Minecraft</small></a>
                                 </div>
                             </div>
                         </div>
-
                         <!-- Deuxième colonne - Compte minecraft lié -->
                         <?php } else {
                             $response = file_get_contents("https://sessionserver.mojang.com/session/minecraft/profile/" . Auth::user()->uuid_minecraft);
@@ -204,7 +202,7 @@
                                     <div class="btn-container">
                                         <a href="#"><button type="button" class="btn btn-primary">Profil
                                                 Joueur</button></a><br><br>
-                                        <a href="#"><button type="button"
+                                        <a href=""><button type="button"
                                                 class="btn btn-primary">Classement</button></a><br><br>
                                         <a href="#"><button type="button"
                                                 class="btn btn-danger">Délié</button></a>
