@@ -73,5 +73,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
+// Route tickets
+use App\Http\Controllers\TicketController;
 
-
+Route::resource('tickets', TicketController::class);
