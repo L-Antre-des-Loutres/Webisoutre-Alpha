@@ -274,8 +274,8 @@
                             <div class="card mx-auto" style="max-width: 15rem;">
                                 <img class="card-img-top" src="{{ asset('images/icon/ticket.png') }}" alt="ticket">
                                 <div class="card-body">
-                                    <div class="btn-container">
-                                        <a href="{{ route('tickets.create') }}"><button type="button" class="btn btn-primary">Ouvrir un ticket</button></a><br>
+                                <div class="btn-container">
+                                         <a href="{{ route('tickets.index') }}"><button type="button" class="btn btn-primary">Ouvrir un ticket</button></a><br>
                                     </div>
                                 </div>
                             </div>
@@ -295,7 +295,17 @@
                                     <img class="card-img-top" src="{{ asset('images/icon/moderation.png') }}" alt="reset">
                                     <div class="card-body">
                                         <div class="btn-container"> 
-                                            <a href="{{ route('admin-panel') }}"><button type="button" class="btn btn-primary">Gestion des serveurs</button></a><br>
+                                            <a href="{{ route('liste-serveurs') }}"><button type="button" class="btn btn-primary">Gestion des serveurs</button></a><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card mx-auto" style="max-width: 15rem;">
+                                    <img class="card-img-top" src="{{ asset('images/icon/moderation.png') }}" alt="reset">
+                                    <div class="card-body">
+                                        <div class="btn-container"> 
+                                            <a href="{{ route('admin.creerServeur') }}"><button type="button" class="btn btn-primary">Crée un serveur</button></a><br>
                                         </div>
                                     </div>
                                 </div>
