@@ -22,6 +22,7 @@
 
     <p><strong>Tag Discord :</strong> {{ $user->tag_discord }}</p>
     <p><strong>UUID Minecraft :</strong> {{ $user->uuid_minecraft }}</p>
+    <p><strong>Pseudo :</strong> {{ $username }}</p>
     <div id="badges">
         <!-- Afficher chaque badge ID que l'utilisateur possède -->
         <p><strong>Badges :</strong></p>
