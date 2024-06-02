@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 // Route Profil
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\BadgeController;
 
 // Route pour afficher le profil de l'utilisateur connecté
 Route::get('/profil', [ProfilController::class, 'profil'])->name('profil');
@@ -32,7 +33,6 @@ Route::get('/badges', [ProfilController::class, 'badges'])->name('badges');
 
 // Route pour obtenir un badge
 Route::post('/badges/{badgeId}', [ProfilController::class, 'getBadge'])->name('getBadge');
-
 
 
 // Route Genshin
@@ -50,13 +50,14 @@ Route::get('/minecraft/serveur/detail', [MinecraftController::class, 'detail'])-
 
 // Route Classement Minecraft
 use App\Http\Controllers\ClassementController;
+
 Route::get('/minecraft/classement', [ClassementController::class, 'classement'])->name('classement-minecraft');
 Route::get('/minecraft/classement/?classement=joueur', [ClassementController::class, 'classement'])->name('classement-minecraft-joueur');
 Route::get('/minecraft/classement/?classement=serveur', [ClassementController::class, 'classement'])->name('classement-minecraft-serveur');
 Route::get('/minecraft/stats/joueur', [ClassementController::class, 'profilStats'])->name('statsJoueur');
 Route::delete('/minecraft/admin/supprimerStats/{id_stats}/{username}', [ClassementController::class, 'deleteStats'])->name('admin-deleteStats');
 
-// Route Minecraft Admin
+
 // Les routes nécessitant une authentification admin
 Route::group(['middleware' => AdminMiddleware::class], function () {
 
@@ -67,10 +68,28 @@ Route::group(['middleware' => AdminMiddleware::class], function () {
     Route::put('minecraft/admin/modifierServeur/{id_serv}', [MinecraftController::class, 'update'])->name('admin-update');
     Route::delete('/minecraft/admin/supprimerServeur/{id_serv}', [MinecraftController::class, 'delete'])->name('admin-delete');
 
+    // Route pour afficher le formulaire de création d'un badge
+    Route::get('/badge/create', [BadgeController::class, 'createBadgeForm'])->name('createBadgeForm');
+
+    // Route pour afficher la liste des badges
+    Route::get('/badge/liste', [BadgeController::class, 'listeBadges'])->name('badge.index');
+
+    // Route pour afficher le formulaire de mise à jour d'un badge
+    Route::get('/badge/update/{badgeId}', [BadgeController::class, 'updateBadgeForm'])->name('badge.update.form');
+
+    // Route pour créer un badge
+    Route::post('/badge/create', [BadgeController::class, 'createBadge'])->name('badge.store');
+    // Route pour supprimer un badge
+    Route::delete('/badge/delete/{badge_id}', [BadgeController::class, 'deleteBadge'])->name('badge.delete');
+    // Route pour mettre à jour un badge
+    Route::put('/badge/update/{badge_id}', [BadgeController::class, 'updateBadge'])->name('badge.update');
+
+
 });
 
 // Route de téléchargement
 use App\Http\Controllers\DownloadController;
+
 Route::get('/download/{nom_fichier}', [DownloadController::class, 'downloadFiles'])->name('download.file');
 
 // Route connexion Discord
