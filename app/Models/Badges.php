@@ -25,6 +25,7 @@ class Badges extends Model
             'badges.created_at',
             'badges.updated_at'
         )
+        ->where('badges.user_id', $userId)
         ->get();
     }
 }

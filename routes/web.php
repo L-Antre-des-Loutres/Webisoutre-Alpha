@@ -18,6 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 })->name('accueil');
 
+// Route Profil
+use App\Http\Controllers\ProfilController;
+
+Route::get('/profil', [ProfilController::class, 'profil'])->name('profil');
+
+
 // Route Genshin
 use App\Http\Controllers\GenshinController;
 

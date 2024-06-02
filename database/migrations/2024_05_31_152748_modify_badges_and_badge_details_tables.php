@@ -2,6 +2,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class ModifyBadgesAndBadgeDetailsTables extends Migration
 {
@@ -24,6 +25,28 @@ class ModifyBadgesAndBadgeDetailsTables extends Migration
             $table->string('image_link')->nullable(); // Lien de l'image pour le badge (optionnel)
             $table->timestamps();
         });
+
+        // Remplir la table badge détails avec des données
+
+        // Badge de liaison compte Discord
+        DB::table('badge_details')->insert([
+            'title' => 'Liaison compte Discord',
+            'description' => 'Badge obtenu après avoir lié votre compte Discord',
+            'condition' => 'discord_linked',
+            'image_link' => '/public/images/badges/admin.png',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        // Badge de liaison compte Minecraft
+        DB::table('badge_details')->insert([
+            'title' => 'Liaison compte Minecraft',
+            'description' => 'Badge obtenu après avoir lié votre compte Minecraft',
+            'condition' => 'minecraft_linked',
+            'image_link' => '/public/images/badges/champion_vanilla.png',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
 
         // Recréer la table badges
         Schema::create('badges', function (Blueprint $table) {
