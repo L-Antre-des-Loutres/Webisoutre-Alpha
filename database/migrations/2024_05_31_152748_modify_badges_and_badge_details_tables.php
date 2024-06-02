@@ -12,28 +12,27 @@ class ModifyBadgesAndBadgeDetailsTables extends Migration
      */
     public function up()
     {
-        // Supprimer les tables si elles existent
-        Schema::dropIfExists('badge_details');
         Schema::dropIfExists('badges');
+        Schema::dropIfExists('badge_details');
+
+        // Recréer la table badge_details en premier car elle est référencée par badges
+        Schema::create('badge_details', function (Blueprint $table) {
+            $table->id();  // Clé primaire auto-incrémentée
+            $table->string('title');
+            $table->text('description');
+            $table->string('condition');
+            $table->string('image_link')->nullable(); // Lien de l'image pour le badge (optionnel)
+            $table->timestamps();
+        });
 
         // Recréer la table badges
         Schema::create('badges', function (Blueprint $table) {
             $table->id();  // Clé primaire auto-incrémentée
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('badge_detail_id'); // Colonne pour la clé étrangère vers badge_details
+            $table->foreign('badge_detail_id')->references('id')->on('badge_details')->onDelete('cascade');
             // Ajoutez d'autres colonnes pour les données de votre badge
-            $table->timestamps();
-        });
-
-        // Recréer la table badge_details
-        Schema::create('badge_details', function (Blueprint $table) {
-            $table->id('id_badge');  // Clé primaire auto-incrémentée
-            $table->unsignedBigInteger('badge_id');  // Colonne pour la clé étrangère vers badges
-            $table->foreign('badge_id')->references('id')->on('badges')->onDelete('cascade');
-            $table->string('title');
-            $table->text('description');
-            $table->string('condition');
-            $table->string('image_link')->nullable(); // Lien de l'image pour l'avoir (optionnel)
             $table->timestamps();
         });
     }
@@ -46,10 +45,8 @@ class ModifyBadgesAndBadgeDetailsTables extends Migration
     public function down()
     {
         // Supprimer les tables dans l'ordre inverse de la création pour éviter les problèmes de clé étrangère
-        Schema::dropIfExists('badge_details');
         Schema::dropIfExists('badges');
+        Schema::dropIfExists('badge_details');
     }
 }
-
-
 ?>
