@@ -30,7 +30,7 @@ class TicketController extends Controller
         Ticket::create($request->all());
 
         return redirect()->route('tickets.index')
-                        ->with('success', 'Ticket created successfully.');
+                        ->with('success', 'Ticket crée.');
     }
 
     public function show(Ticket $ticket)
@@ -45,23 +45,28 @@ class TicketController extends Controller
 
     public function update(Request $request, Ticket $ticket)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'titre' => 'required',
             'description' => 'required',
             'status' => 'required'
         ]);
-
-        $ticket->update($request->all());
-
-        return redirect()->route('tickets.index')
-                        ->with('success', 'Ticket updated successfully.');
+    
+        $ticket->update([
+            'titre' => $validatedData['titre'],
+            'description' => $validatedData['description'],
+            'status' => $validatedData['status']
+        ]);
+    
+        return redirect()->route('tickets.show', $ticket->id)
+                         ->with('success', 'Ticket modifié.');
     }
+    
 
     public function destroy(Ticket $ticket)
     {
         $ticket->delete();
 
         return redirect()->route('tickets.index')
-                        ->with('success', 'Ticket deleted successfully.');
+                        ->with('success', 'Ticket suprimé.');
     }
 }

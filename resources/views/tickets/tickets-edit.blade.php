@@ -16,12 +16,12 @@
         <div>
             <label for="status">Statut :</label>
             <select name="status" id="status">
-                <option value="open" {{ $ticket->status == 'open' ? 'selected' : '' }}>Open</option>
-                <option value="closed" {{ $ticket->status == 'closed' ? 'selected' : '' }}>Closed</option>
-                <option value="pending" {{ $ticket->status == 'pending' ? 'selected' : '' }}>Pending</option>
+                <option value="ouvert" {{ $ticket->status == 'ouvert' ? 'selected' : '' }}>Ouvert</option>
+                <option value="clot" {{ $ticket->status == 'clot' ? 'selected' : '' }}>Clot</option>
+                <option value="attente" {{ $ticket->status == 'attente' ? 'selected' : '' }}>En attente</option>
             </select>
         </div>
-        <button type="submit">Valider</button>
+        <button type="submit" class="button">Modifier</button>
     </form>
     <form action="{{ route('tickets.show', $ticket->id) }}">
         <button type="submit" class="button">Retour</button>
