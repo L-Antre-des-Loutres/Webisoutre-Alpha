@@ -37,6 +37,11 @@ class User extends Authenticatable
         'admin',
     ];
 
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
