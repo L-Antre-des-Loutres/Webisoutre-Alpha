@@ -21,7 +21,11 @@ Route::get('/', function () {
 // Route Profil
 use App\Http\Controllers\ProfilController;
 
+// Route pour afficher le profil de l'utilisateur connecté
 Route::get('/profil', [ProfilController::class, 'profil'])->name('profil');
+
+// Route pour afficher le profil d'un utilisateur spécifique
+Route::get('/profil/{username}', [ProfilController::class, 'profil'])->name('profil-username');
 
 
 // Route Genshin
