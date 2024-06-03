@@ -37,11 +37,11 @@
         }
 
         #colonne1 {
-            background-image: url('/images/background/minecraft/vanilla-spawn.png');
+            background-image: url('{{ asset('images/background/minecraft/vanilla-spawn.png') }}');
         }
 
         #colonne2 {
-            background-image: url('/images/background/genshin/ArbreSumeru.png');
+            background-image: url('{{ asset('images/background/genshin/ArbreSumeru.png') }}');
             /* Arbre Sumeru background-image: url('https://cdn.discordapp.com/attachments/1201559919887929396/1207086659284373504/20240213231112.png?ex=65de5e0e&is=65cbe90e&hm=e5b7e666d7ed352b68f043276d8874de51e5cc6ff3a19f5b3db00e1c56c90735&');*/
             /* Fôret Inazuma background-image: url('https://cdn.discordapp.com/attachments/1201559919887929396/1207084776951906354/20240213230346.png?ex=65de5c4d&is=65cbe74d&hm=9fb20371865239815430d56d6cd0a455feef94edbf7aec6c9bb03d2f9afd6916&'); */
             /* Chateau Raiden de nuit : background-image: url('https://cdn.discordapp.com/attachments/1201559919887929396/1207084776951906354/20240213230346.png?ex=65de5c4d&is=65cbe74d&hm=9fb20371865239815430d56d6cd0a455feef94edbf7aec6c9bb03d2f9afd6916&'); */

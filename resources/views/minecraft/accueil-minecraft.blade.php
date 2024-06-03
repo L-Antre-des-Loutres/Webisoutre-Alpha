@@ -355,13 +355,13 @@
                                 </div>
                         </div>
                             <a href="{{ route('dashboard') }}"><img class="skin-account" alt="skin" src="https://mc-heads.net/body/<?php
-                                if (Auth::check()) {
-                                    if (Auth::user()->uuid_minecraft) {
-                                        echo Auth::user()->uuid_minecraft;
-                                    }
-                                } else {
-                                    echo 'a575596d3dad48f88260010d945d4b0d';
+                            if (Auth::check()) {
+                                if (Auth::user()->uuid_minecraft) {
+                                    echo Auth::user()->uuid_minecraft;
                                 }
+                            } else {
+                                echo 'a575596d3dad48f88260010d945d4b0d';
+                            }
                             ?>"></a>
                         <br>
                     `);
