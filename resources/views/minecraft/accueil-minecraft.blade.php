@@ -45,12 +45,12 @@
 
         /* Imagse de fonds */
         .vanilla-bg {
-            background-image: url("/images/background/minecraft/vanilla-spawn.png");
+            background-image: url('{{ asset('images/background/minecraft/vanilla-spawn.png') }}');
             filter: brightness(45%);
         }
 
         .idk-bg {
-            background-image: url("/images/background/minecraft/vanilla-maison-az.png");
+            background-image: url('{{ asset('/images/background/minecraft/vanilla-maison-az.png') }}');
         }
 
         /* Fin images de fonds */
@@ -144,7 +144,7 @@
             -o-transform: scale(-1, 1);
             -webkit-transform: scale(-1, 1);
             transform: scale(-1, 1);
-            
+
             filter: drop-shadow(2px 5px 10px #000000);
         }
 
@@ -167,7 +167,7 @@
         }
 
         .custom-button-container a {
-            background-image: url('../images/buttons/minecraft/mc-button-text.png');
+            background-image: url('{{ asset('images/buttons/minecraft/mc-button-text.png') }}');
             background-size: cover;
 
             display: block;
@@ -196,7 +196,7 @@
         }
 
         .custom-button-container a:hover {
-            background-image: url('../images/buttons/minecraft/mc-button-text-selected.png');
+            background-image: url('{{ asset('images/buttons/minecraft/mc-button-text-selected.png') }}');
             color: #1aa140;
         }
 
@@ -218,7 +218,7 @@
         }
 
         .custom-button-container-large a {
-            background-image: url('../images/buttons/minecraft/mc-large-button-text.png');
+            background-image: url('{{ asset('images/buttons/minecraft/mc-large-button-text.png') }}');
             background-size: cover;
 
             display: block;
@@ -247,7 +247,7 @@
         }
 
         .custom-button-container-large a:hover {
-            background-image: url('../images/buttons/minecraft/mc-large-button-text-selected.png');
+            background-image: url('{{ asset('images/buttons/minecraft/mc-large-button-text-selected.png') }}');
             color: #1aa140;
         }
 
@@ -269,7 +269,7 @@
         }
 
         .custom-button-container-anim a {
-            background-image: url('../images/buttons/minecraft/mc-large-button-text.png');
+            background-image: url('{{ asset('images/buttons/minecraft/mc-large-button-text.png') }}');
             background-size: cover;
 
             display: block;
@@ -298,7 +298,7 @@
         }
 
         .custom-button-container-anim a:hover {
-            background-image: url('../images/buttons/minecraft/mc-large-button-text-selected-anim.gif');
+            background-image: url('{{ asset('images/buttons/minecraft/mc-large-button-text-selected-anim.gif') }}');
             color: #1aa140;
         }
 
